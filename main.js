@@ -1,4 +1,4 @@
-import { ajouterTache, supprimerTache } from './taches.js'
+import { ajouterTache, supprimerTache, compterTaches } from './taches.js'
 
 // La liste des tâches. Elle est vide au chargement de la page.
 let taches = []
@@ -30,10 +30,7 @@ function afficher() {
     elementListe.appendChild(ligne)
   }
 
-  // TD 4 : affichez ici le nombre de tâches.
-  // 1. Ajoutez compterTaches dans l'import de la ligne 1.
-  // 2. Retirez les deux barres // au début de la ligne suivante.
-  // compteur.textContent = 'Nombre de tâches : ' + compterTaches(taches)
+  compteur.textContent = 'Nombre de tâches : ' + compterTaches(taches)
 }
 
 // Quand le formulaire est envoyé, on ajoute une tâche.
