@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { ajouterTache, supprimerTache } from './taches.js'
+import { ajouterTache, supprimerTache, compterTaches } from './taches.js'
 
 test('ajoute une tâche à la liste', () => {
   const liste = ajouterTache([], 'Lire')
