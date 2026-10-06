@@ -11,3 +11,7 @@ export function ajouterTache(liste, titre) {
 export function supprimerTache(liste, titre) {
   return liste.filter((tache) => tache.titre !== titre)
 }
+
+export function compterTaches(liste) {
+  return liste.length
+}
