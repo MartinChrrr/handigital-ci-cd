@@ -13,13 +13,15 @@ Application d'exemple du module « CI/CD avec Jenkins ».
 
 ---
 
-Les 6 sections suivantes sont à compléter au jour 4.
+Les 6 sections suivantes sont à compléter au jour 4. 
 
 ## 1. Le site
 
 Adresse du site en ligne :
 
 ## 2. Démarrer Jenkins
+
+Jour 1.
 
 ## 3. Configuration
 
