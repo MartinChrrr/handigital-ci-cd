@@ -14,3 +14,4 @@ export function supprimerTache(liste, titre) {
 
 export function compterTaches(liste) {
   return liste.length
+}
