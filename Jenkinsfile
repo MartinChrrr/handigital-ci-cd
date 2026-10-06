@@ -8,7 +8,7 @@ pipeline {
     triggers { pollSCM('H/2 * * * *') }
     stages {
         stage('Installer') { steps { sh 'npm ci' } }
-        stage('Tester') { steps { sh 'npm test:ci' } }
+        stage('Tester') { steps { sh 'npm run test:ci' } }
         stage('Construire') { steps { sh 'npm run build'; archiveArtifacts 'dist/**' } }
         stage('Déployer') { steps { sh 'npm run deploy' } }
     }
