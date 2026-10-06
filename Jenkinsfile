@@ -10,8 +10,10 @@ pipeline {
         stage('Installer') { steps { sh 'npm ci' } }
         stage('Tester') { steps { sh 'npm run test:ci' } }
         stage('Construire') { steps { sh 'npm run build'; archiveArtifacts 'dist/**' } }
+        stage('Prévisualiser') { steps { sh 'npm run deploy:preview' } }
+        stage('Valider') { steps { input message : 'Mettre en ligne ?' } }
         stage('Déployer') { steps { sh 'npm run deploy' } }
-    }
+    }   
     post {
         always { junit 'rapport.xml' }
         success { echo 'Pipeline réussi' }
