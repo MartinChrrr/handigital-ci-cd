@@ -10,5 +10,5 @@ test('ajoute une tâche à la liste', () => {
 test('supprime une tâche', () => {
 const liste = ajouterTache([], 'Lire')
 const vide = supprimerTache(liste, 'Lire')
-expect(vide.length).toBe(5)
+expect(vide.length).toBe(0)
 })
