@@ -13,8 +13,8 @@ pipeline {
             steps {
                 script {
                 def scannerHome = tool 'sonar-scanner'
-                withSonarQubeEnv('sonarQubeToken') {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                withSonarQubeEnv('sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=handigital-ci-cd -Dsonar.projectName=handigital-ci-cd -Dsonar.sources=. '-Dsonar.exclusions=node_modules/**,dist/**'"
                 }
                 }
             }
