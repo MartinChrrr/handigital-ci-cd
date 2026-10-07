@@ -9,6 +9,24 @@ pipeline {
     stages {
         stage('Installer') { steps { sh 'npm ci' } }
         stage('Tester') { steps { sh 'npm run test:ci' } }
+        stage('SonarQube') {
+            steps {
+                script {
+                def scannerHome = tool 'sonar-scanner'
+                withSonarQubeEnv('sonarQubeToken') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                }
+            }
+            }
+
+            stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                waitForQualityGate abortPipeline: true
+                }
+            }
+        }
         stage('Construire') { steps { sh 'npm run build'; archiveArtifacts 'dist/**' } }
         stage('Prévisualiser') { steps { sh 'npm run deploy:preview' } }
         stage('Valider') { steps { input message : 'Mettre en ligne ?' } }
